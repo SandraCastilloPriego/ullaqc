@@ -126,18 +126,6 @@ public abstract class UllaQCCore {
             Document configuration = reader.read(CONFIG_FILE);
             Element configRoot = configuration.getRootElement();
 
-            /*Element preferencesConfigElement = configRoot.element(PREFERENCES_ELEMENT_NAME);
-            if (preferencesConfigElement == null) {
-            preferencesConfigElement = configRoot.addElement(PREFERENCES_ELEMENT_NAME);
-            }*
-            preferencesConfigElement.clearContent();
-            try {
-            preferences.exportValuesToXML(preferencesConfigElement);
-            } catch (Exception e) {
-            logger.log(Level.SEVERE, "Could not save preferences", e);
-            }
-
-             */
             // save desktop configuration
             StorableParameterSet desktopParameters = ((MainWindow) desktop).getParameterSet();
             Element desktopConfigElement = configRoot.element(DESKTOP_ELEMENT_NAME);
@@ -205,11 +193,6 @@ public abstract class UllaQCCore {
 
             logger.finest("Loading desktop configuration");
 
-            /*Element preferencesConfigElement = configRoot.element(PREFERENCES_ELEMENT_NAME);
-            if (preferencesConfigElement != null) {
-            preferences.importValuesFromXML(preferencesConfigElement);
-            }
-             */
             StorableParameterSet desktopParameters = (StorableParameterSet) desktop.getParameterSet();
             Element desktopConfigElement = configRoot.element(DESKTOP_ELEMENT_NAME);
             if (desktopConfigElement != null) {

@@ -17,7 +17,12 @@
  */
 package ullaqc.modules.plots;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.util.logging.Logger;
 import ullaqc.data.ParameterSet;
+import ullaqc.data.impl.SimpleParameterSet;
 import ullaqc.desktop.Desktop;
 import ullaqc.desktop.UllaQCMenu;
 import ullaqc.main.UllaQCCore;
@@ -26,11 +31,6 @@ import ullaqc.taskcontrol.Task;
 import ullaqc.taskcontrol.TaskListener;
 import ullaqc.taskcontrol.TaskStatus;
 import ullaqc.util.dialogs.ExitCode;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.util.logging.Logger;
-import ullaqc.data.impl.SimpleParameterSet;
 import ullaqc.util.dialogs.ParameterSetupDialog;
 
 /**

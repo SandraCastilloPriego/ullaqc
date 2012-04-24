@@ -50,15 +50,6 @@ public class Chart extends ChartPanel {
 
         chart.setBackgroundPaint(Color.white);
         setChart(chart);
-
-
-        //         Generate the graph
-
-        // try {
-        // ChartUtilities.saveChartAsJPEG(new File("C:chart.jpg"), chart, 500, 300);
-        // } catch (IOException e) {
-        //     System.err.println("Problem occurred creating chart.");
-        // }
     }
 
     public void addSeries(List<Double> info, String name) {
@@ -68,17 +59,17 @@ public class Chart extends ChartPanel {
             series.add(cont, d);
             cont++;
         }
-
         dataset.addSeries(series);
     }
 
 
 
-    public void createChart() {
+    public void createChart(List<String> info) {
         final XYPlot plot = chart.getXYPlot();
         XYLineAndShapeRenderer renderer = new XYLineAndShapeRenderer();
         renderer.setBaseLinesVisible(true);
         renderer.setBaseShapesVisible(true);
+        renderer.setBaseToolTipGenerator(new PlotToolTipGenerator(info));
         plot.setRenderer(renderer);
         chart.setBackgroundPaint(Color.white);
         plot.setOutlinePaint(Color.black);

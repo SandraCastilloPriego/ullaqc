@@ -35,87 +35,95 @@ import ullaqc.taskcontrol.TaskStatus;
  */
 public class OpenChartTask implements Task {
 
-    private TaskStatus status = TaskStatus.WAITING;
-    private String errorMessage;
-    private double progress;
-    private Chart chart;
-    private Object[] param;
-    private String name;
-    private Dataset dataset;
+        private TaskStatus status = TaskStatus.WAITING;
+        private String errorMessage;
+        private double progress;
+        private Chart chart;
+        private Object[] param;
+        private String name;
+        private Dataset dataset;
 
-    public OpenChartTask(SimpleParameterSet parameters, String name) {
-        chart = new Chart();
-        param = (Object[]) parameters.getParameterValue(ChartParameters.charts);
-        this.name = name;
-        dataset = OpenFileDBTask.getDataset(name);
-    }
-
-    public String getTaskDescription() {
-        return "Creating chart... ";
-    }
-
-    public double getFinishedPercentage() {
-        return progress;
-    }
-
-    public TaskStatus getStatus() {
-        return status;
-    }
-
-    public String getErrorMessage() {
-        return errorMessage;
-    }
-
-    public void cancel() {
-        status = TaskStatus.CANCELED;
-    }
-
-    public void run() {
-        status = TaskStatus.PROCESSING;
-        for (Object p : param) {
-            List<Double> list = this.getList((String) p);            
-            chart.addSeries(list, (String) p);
+        public OpenChartTask(SimpleParameterSet parameters, String name) {
+                chart = new Chart();
+                param = (Object[]) parameters.getParameterValue(ChartParameters.charts);
+                this.name = name;
+                dataset = OpenFileDBTask.getDataset(name);
         }
-        chart.createChart();
 
-        JInternalFrame frame = new JInternalFrame(name, true, true, true, true);
-        frame.setSize(new Dimension(700, 500));
+        public String getTaskDescription() {
+                return "Creating chart... ";
+        }
 
-        frame.add(chart);
+        public double getFinishedPercentage() {
+                return progress;
+        }
 
-        chart.setVisible(true);
-        frame.setVisible(true);
+        public TaskStatus getStatus() {
+                return status;
+        }
 
-        UllaQCCore.getDesktop().addInternalFrame(frame);
+        public String getErrorMessage() {
+                return errorMessage;
+        }
 
-        status = TaskStatus.FINISHED;
-    }
+        public void cancel() {
+                status = TaskStatus.CANCELED;
+        }
 
-    private List<Double> getList(String p) {
-        try {
-            List<Double> list = new ArrayList<Double>();
-            for (PeakListRow row : dataset.getRows()) {
-               // if(row.getVar(""))
-                if (p.equals("RT")) {
-                    list.add(Double.valueOf((String) row.getPeak("RT")));
-                } else if (p.equals("Height")) {
-                    list.add(Double.valueOf((String) row.getPeak("Height")));
-                } else if (p.equals("Area")) {
-                    list.add(Double.valueOf((String) row.getPeak("Area")));
-                } else if (p.equals("Height/Area")) {
-                    list.add(Double.valueOf((String) row.getPeak("Height/Area")));
-                } else if (p.equals("S/N")) {
-                    list.add(Double.valueOf((String) row.getPeak("S/N")));
-                } else if (p.equals("Noise")) {
-                    list.add(Double.valueOf((String) row.getPeak("Noise")));
+        public void run() {
+                status = TaskStatus.PROCESSING;
+                for (Object p : param) {
+                        List<Double> list = this.getList((String) p);
+                        chart.addSeries(list, (String) p);
                 }
-            }
-            return list;
-        } catch (Exception e) {
-            status = TaskStatus.ERROR;
-            errorMessage = e.toString();
-            return null;
+                chart.createChart(getNameList());
+
+                JInternalFrame frame = new JInternalFrame(name, true, true, true, true);
+                frame.setSize(new Dimension(700, 500));
+
+                frame.add(chart);
+
+                chart.setVisible(true);
+                frame.setVisible(true);
+
+                UllaQCCore.getDesktop().addInternalFrame(frame);
+
+                status = TaskStatus.FINISHED;
         }
 
-    }
+        private List<String> getNameList() {
+                List<String> list = new ArrayList<String>();
+                for (PeakListRow row : dataset.getRows()) {
+                        list.add((String) row.getPeak("Dataset name"));
+                }
+                return list;
+        }
+
+        private List<Double> getList(String p) {
+                try {
+                        List<Double> list = new ArrayList<Double>();
+                        for (PeakListRow row : dataset.getRows()) {
+                                // if(row.getVar(""))
+                                if (p.equals("RT")) {
+                                        list.add(Double.valueOf((String) row.getPeak("RT")));
+                                } else if (p.equals("Height")) {
+                                        list.add(Double.valueOf((String) row.getPeak("Height")));
+                                } else if (p.equals("Area")) {
+                                        list.add(Double.valueOf((String) row.getPeak("Area")));
+                                } else if (p.equals("Height/Area")) {
+                                        list.add(Double.valueOf((String) row.getPeak("Height/Area")));
+                                } else if (p.equals("S/N")) {
+                                        list.add(Double.valueOf((String) row.getPeak("S/N")));
+                                } else if (p.equals("Noise")) {
+                                        list.add(Double.valueOf((String) row.getPeak("Noise")));
+                                }
+                        }
+                        return list;
+                } catch (Exception e) {
+                        status = TaskStatus.ERROR;
+                        errorMessage = e.toString();
+                        return null;
+                }
+
+        }
 }
