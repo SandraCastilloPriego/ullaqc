@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration> 
+  <nodes local="2"/>  
+  <modules> 
+    <!-- DATABASE -->  
+    <!-- <module class="ullaqc.modules.database.saveDatasetDB.SaveFileDB"> 
+      <parameters> 
+        <parameter name="Dataset name: " type="STRING">Name</parameter>  
+        <parameter name="Author: " type="STRING">Author</parameter>  
+        <parameter name="Studies: " type="STRING"/>  
+        <parameter name="Dataset units: " type="STRING">Micromols/litre</parameter>  
+        <parameter name="Dataset parameters: " type="FILE_NAME">Parameters</parameter> 
+      </parameters> 
+    </module>  
+    <module class="ullaqc.modules.database.openDataDB.OpenFileDB"/>  
+    <module class="ullaqc.modules.database.deleteDataDB.DeleteDatasetDB"/>  -->  
+    <!-- FILES -->  
+    <module class="ullaqc.modules.openfiles.OpenFile"/>  
+    <module class="ullaqc.modules.savefiles.SaveOtherFile"> 
+      <parameters>
+        <parameter name="Filename" type="FILE_NAME">/home/scsandra/ulllatest.xls</parameter>
+        <parameter name="type" type="STRING">Excel</parameter>
+      </parameters> 
+    </module>  
+    <!-- OPEN EXPERIMENT DATA: <module class="ullaqc.modules.file.openExperimentsData.OpenFile"/>-->  
+    <!--<module class="ullaqc.modules.file.openBasicFiles.OpenBasicFile"/>  
+    <module class="ullaqc.modules.file.openMassLynxFiles.OpenFile"/>  -->  
+    <!-- OPEN MASS LYNX FILES: <module class="ullaqc.modules.file.openMassLynxFiles.Tuulikki.OpenFile"/> -->  
+    <module class="ullaqc.modules.exit.ExitProgram"/>  
+    <module class="ullaqc.modules.database.retrieve.OpenFileDB"> 
+      <parameters>
+        <parameter name="Parameters" type="MULTIPLE_SELECTION">lysoPC_50ppm,PC_50ppm,TG_50ppm,LPCD3_50ppm,PCD6_50ppm,TGC13_50ppm</parameter>
+      </parameters> 
+    </module>  
+    <module class="ullaqc.modules.database.saveFile.SaveFileDB"/>  
+    <module class="ullaqc.modules.plots.OpenChart"> 
+      <parameters>
+        <parameter name="Molecules" type="MULTIPLE_SELECTION">lysoPC_50ppm</parameter>
+        <parameter name="Parameters" type="MULTIPLE_SELECTION">Height/Area</parameter>
+      </parameters> 
+    </module> 
+  </modules>  
+  <desktop>
+    <format type="m/z">
+      <type>NUMBER</type>
+      <pattern>#0.000</pattern>
+    </format>
+    <format type="Retention time">
+      <type>TIME</type>
+      <pattern>m:ss</pattern>
+    </format>
+    <format type="Intensity">
+      <type>NUMBER</type>
+      <pattern>0.00E0</pattern>
+    </format>
+    <mainwindow>
+      <x>0</x>
+      <y>25</y>
+      <width>-1</width>
+      <height>-1</height>
+    </mainwindow>
+    <lastdirectory></lastdirectory>
+    <lastProjectDirectory>/home/scsandra/Desktop/untitled folder 2/190Batch6.txt</lastProjectDirectory>
+    <lastSaveDirectory>/</lastSaveDirectory>
+  </desktop> 
+</configuration>
