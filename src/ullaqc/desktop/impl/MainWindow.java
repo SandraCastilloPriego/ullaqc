@@ -17,6 +17,19 @@
  */
 package ullaqc.desktop.impl;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.help.HelpBroker;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import javax.swing.border.EtchedBorder;
 import ullaqc.data.Dataset;
 import ullaqc.data.ParameterSet;
 import ullaqc.desktop.Desktop;
@@ -27,25 +40,6 @@ import ullaqc.main.UllaQCModule;
 import ullaqc.taskcontrol.impl.TaskProgressWindow;
 import ullaqc.util.ExceptionUtils;
 import ullaqc.util.TextUtils;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-
-import javax.help.HelpBroker;
-import javax.imageio.ImageIO;
-import javax.swing.JDesktopPane;
-import javax.swing.JFrame;
-import javax.swing.JInternalFrame;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JSplitPane;
-import javax.swing.border.EtchedBorder;
 
 /**
  * This class is the main window of application

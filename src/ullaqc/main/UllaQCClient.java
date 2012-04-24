@@ -17,22 +17,17 @@
  */
 package ullaqc.main;
 
-import ullaqc.desktop.impl.MainWindow;
-import ullaqc.desktop.impl.helpsystem.HelpImpl;
-import ullaqc.taskcontrol.impl.TaskControllerImpl;
 import java.util.Iterator;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import javax.swing.SwingUtilities;
-
-
-
-
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
+import ullaqc.desktop.impl.MainWindow;
+import ullaqc.desktop.impl.helpsystem.HelpImpl;
+import ullaqc.taskcontrol.impl.TaskControllerImpl;
 
 /**
  * Main client class

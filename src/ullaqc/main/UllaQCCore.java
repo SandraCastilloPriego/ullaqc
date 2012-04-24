@@ -17,29 +17,24 @@
  */
 package ullaqc.main;
 
-import ullaqc.data.StorableParameterSet;
+import java.io.File;
+import java.io.FileWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import org.dom4j.Document;
+import org.dom4j.Element;
+import org.dom4j.io.OutputFormat;
+import org.dom4j.io.SAXReader;
+import org.dom4j.io.XMLWriter;
 import ullaqc.data.ParameterSet;
-
+import ullaqc.data.StorableParameterSet;
 import ullaqc.desktop.Desktop;
 import ullaqc.desktop.impl.MainWindow;
 import ullaqc.desktop.impl.helpsystem.HelpImpl;
 import ullaqc.taskcontrol.TaskController;
 import ullaqc.util.NumberFormatter;
 import ullaqc.util.NumberFormatter.FormatterType;
-import java.io.File;
-import java.io.FileWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import javax.swing.JOptionPane;
-
-
-
-import org.dom4j.Document;
-import org.dom4j.Element;
-import org.dom4j.io.OutputFormat;
-import org.dom4j.io.SAXReader;
-import org.dom4j.io.XMLWriter;
 
 /**
  * This interface represents UllaQC core modules - I/O, task controller and GUI.

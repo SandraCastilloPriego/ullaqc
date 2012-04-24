@@ -17,20 +17,15 @@
  */
 package ullaqc.modules.openfiles;
 
+import com.sun.java.ExampleFileFilter;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.logging.Logger;
-
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-
-
-import com.sun.java.ExampleFileFilter;
-import java.util.ArrayList;
-import java.util.List;
 import ullaqc.desktop.impl.DesktopParameters;
 import ullaqc.main.UllaQCCore;
 import ullaqc.util.dialogs.ExitCode;
