@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.8.2
+Created-By: 1.6.0_24-b24 (Sun Microsystems Inc.)
+Built-By: scsandra
+Class-Path: . lib/TaminoAPI4J-l10n.jar lib/TaminoAPI4J.jar lib/commons
+ -logging-1.0.4.jar lib/commons-math-1.2-javadoc.jar lib/commons-math-
+ 1.2-sources.jar lib/commons-math-1.2.jar lib/commons-math-2.0.jar lib
+ /dom4j-1.6.1.jar lib/flanagan.jar lib/gdswing.jar lib/iText-2.1.1.jar
+  lib/javacsv.jar lib/javastat.jar lib/jaxen-1.1.jar lib/jchempaint-2.
+ 5.8.jar lib/jcommon-1.0.13.jar lib/jcommon-serializer-0.2.0.jar lib/j
+ common-xml-1.0.13.jar lib/jfreechart-1.0.10.jar lib/jhall.jar lib/jmp
+ rojection.jar lib/log4j-1.2.8.jar lib/ojdbc14.jar lib/ojdbc14_g.jar l
+ ib/ojdbc14dms.jar lib/ojdbc14dms_g.jar lib/orai18n.jar lib/ostermille
+ rutils_1_06_01.jar lib/poi-3.0.1-jdk122-final-20071014.jar lib/sqlite
+ jdbc-v056.jar lib/sunutils.jar
+
